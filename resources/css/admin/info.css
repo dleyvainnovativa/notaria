@@ -1,0 +1,60 @@
+.profile-image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 320px; /* adjust if needed */
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Hidden input */
+.profile-image-wrapper input[type="file"] {
+    display: none;
+}
+
+/* Overlay */
+.profile-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 12px;
+    gap: 6px;
+}
+
+.profile-image-overlay i {
+    font-size: 28px;
+}
+
+.profile-image-overlay span {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Hover effect (desktop) */
+.profile-image-wrapper:hover .profile-image-overlay {
+    opacity: 1;
+}
+
+/* Mobile: always show a bit of overlay */
+@media (hover: none) {
+    .profile-image-overlay {
+        opacity: 0.35;
+    }
+}
+
+.profile-image-wrapper:hover i {
+    transform: scale(1.1);
+}

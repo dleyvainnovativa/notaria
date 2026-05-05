@@ -1,0 +1,105 @@
+
+    .icon-flip {
+        position: relative;
+        justify-self: center;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .icon {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.9s ease, opacity 0.25s ease;
+    }
+
+    /* visibility only */
+    .icon-light {
+        opacity: 1;
+    }
+
+    .icon-dark {
+        opacity: 0;
+    }
+
+    .icon-flip.flipped .icon-light {
+        opacity: 0;
+    }
+
+    .icon-flip.flipped .icon-dark {
+        opacity: 1;
+    }
+
+    .content-fill {
+        flex-grow: 1;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    /* Timeline wrapper */
+.timeline-wrapper {
+    position: relative;
+}
+
+/* Vertical line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 18px;
+    width: 1px;
+    background-color: #dee2e6;
+}
+
+/* Timeline item */
+.timeline-item {
+    position: relative;
+}
+
+/* Dot wrapper */
+.timeline-dot-wrapper {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    background: var(--dark-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inner dot */
+.timeline-dot-inner {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Year label */
+.timeline-year {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted-color);
+}
+
+.offcanvas-bottom .offcanvas-body{
+    scrollbar-color: var(--muted-color-50) RGBA(var(--bs-dark-rgb));
+}
+
+.grid-partners {
+    position: relative;
+}
+
+.grid-item {
+    width: 50%;
+}
+
+.my-sizer-element, .grid-partners .grid-item {
+    width: 50%;
+}

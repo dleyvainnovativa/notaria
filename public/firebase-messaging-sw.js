@@ -1,0 +1,39 @@
+// Import the Firebase app and messaging services
+importScripts("https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/12.8.0/firebase-messaging-compat.js");
+
+// Initialize the Firebase app in the service worker.
+// IMPORTANT: These keys are publicly visible and are meant to be. 
+// There is no security risk in having them here.
+const firebaseConfig = {
+  apiKey: "AIzaSyDO-_hbG3wO9pidEFBP8o9dBLAMfLZ9EGw",
+  authDomain: "reservations-1767e.firebaseapp.com",
+  projectId: "reservations-1767e",
+  storageBucket: "reservations-1767e.firebasestorage.app",
+  messagingSenderId: "57806574584",
+  appId: "1:57806574584:web:fd922dab37f2d8bca0fc0d",
+  measurementId: "G-5TJV565CT0"
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
+// Retrieve an instance of Firebase Messaging so that it can handle background messages.
+const messaging = firebase.messaging();
+
+/**
+ * Handle background messages. When a notification is received while the app
+ * is in the background or closed, this is the code that will run.
+ */
+messaging.onBackgroundMessage(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  
+  // Customize the notification here
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: '/img/icon/favicon-96x96.png' // Or your preferred icon path
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});

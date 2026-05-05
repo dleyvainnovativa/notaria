@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "title": "Beard Trim",
+        "description": "Shape and style your beard perfectly",
+        "duration": 15,
+        "duration_unit": "min",
+        "cost": 25,
+        "category": "Beard",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 2,
+        "title": "Beard Line-Up",
+        "description": "Clean and define beard lines for a sharp look",
+        "duration": 10,
+        "duration_unit": "min",
+        "cost": 20,
+        "category": "Beard",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 3,
+        "title": "Full Beard Grooming",
+        "description": "Complete beard service including trim and shaping",
+        "duration": 30,
+        "duration_unit": "min",
+        "cost": 40,
+        "category": "Beard",
+        "icon": "fa-solid fa-user"
+    },
+    {
+        "id": 4,
+        "title": "Hot Towel Beard Treatment",
+        "description": "Hot towel treatment with beard conditioning",
+        "duration": 20,
+        "duration_unit": "min",
+        "cost": 35,
+        "category": "Beard",
+        "icon": "fa-solid fa-fire"
+    },
+    {
+        "id": 5,
+        "title": "Classic Haircut",
+        "description": "Traditional haircut tailored to your style",
+        "duration": 30,
+        "duration_unit": "min",
+        "cost": 30,
+        "category": "Hair",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 15,
+        "title": "Fade Haircut",
+        "description": "Modern fade haircut with clean transitions",
+        "duration": 35,
+        "duration_unit": "min",
+        "cost": 35,
+        "category": "Hair",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 6,
+        "title": "Skin Fade",
+        "description": "High, mid, or low skin fade with precision",
+        "duration": 40,
+        "duration_unit": "min",
+        "cost": 40,
+        "category": "Hair",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 7,
+        "title": "Kids Haircut",
+        "description": "Haircut for kids under 12 years old",
+        "duration": 25,
+        "duration_unit": "min",
+        "cost": 20,
+        "category": "Hair",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 8,
+        "title": "Hair & Beard Combo",
+        "description": "Complete haircut and beard grooming service",
+        "duration": 50,
+        "duration_unit": "min",
+        "cost": 55,
+        "category": "Combo",
+        "icon": "fa-solid fa-user"
+    },
+    {
+        "id": 9,
+        "title": "Fade & Beard Combo",
+        "description": "Fade haircut combined with beard trim",
+        "duration": 60,
+        "duration_unit": "min",
+        "cost": 60,
+        "category": "Combo",
+        "icon": "fa-solid fa-user"
+    },
+    {
+        "id": 10,
+        "title": "Hair Wash",
+        "description": "Shampoo and scalp massage",
+        "duration": 10,
+        "duration_unit": "min",
+        "cost": 10,
+        "category": "Extras",
+        "icon": "fa-solid fa-droplet"
+    },
+    {
+        "id": 11,
+        "title": "Hair Styling",
+        "description": "Professional styling with premium products",
+        "duration": 10,
+        "duration_unit": "min",
+        "cost": 15,
+        "category": "Extras",
+        "icon": "fa-solid fa-spray-can"
+    },
+    {
+        "id": 12,
+        "title": "Eyebrow Trim",
+        "description": "Clean and shape eyebrows",
+        "duration": 5,
+        "duration_unit": "min",
+        "cost": 8,
+        "category": "Extras",
+        "icon": "fa-solid fa-eye"
+    },
+    {
+        "id": 13,
+        "title": "Hot Towel Shave",
+        "description": "Traditional straight razor shave with hot towel",
+        "duration": 30,
+        "duration_unit": "min",
+        "cost": 35,
+        "category": "Shave",
+        "icon": "fa-solid fa-scissors"
+    },
+    {
+        "id": 14,
+        "title": "Head Shave",
+        "description": "Clean head shave using razor or clippers",
+        "duration": 30,
+        "duration_unit": "min",
+        "cost": 30,
+        "category": "Shave",
+        "icon": "fa-solid fa-scissors"
+    }
+]
