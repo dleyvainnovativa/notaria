@@ -18,12 +18,12 @@
                     </div>
                     <div class="col-12">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <button type="button" class="btn btn-primary px-4 me-md-2">
+                            <a href="{{route('admin')}}" type="button" class="btn btn-primary px-4 me-md-2">
                                 Subir documento
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary px-4">
+                            </a>
+                            <a type="button" class="btn btn-outline-secondary px-4">
                                 Ver cómo funciona
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-12 my-4">
