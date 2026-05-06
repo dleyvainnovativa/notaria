@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper" class="border border-dark card-dark sidebar safe-area">
     <div class="sidebar-heading text-primary">
-        <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+        <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
     </div>
 
     <div class="d-flex flex-column vh-100">

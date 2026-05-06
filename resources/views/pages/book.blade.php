@@ -25,7 +25,7 @@
                         </a>
                     </div>
                     <div class="col-4 text-center my-auto mx-auto icon-flip">
-                        <img class="icon icon-light my-auto" id="themeToggle" src="{{ asset('img/icon.png') }}" width="50" alt="">
+                        <img class="icon icon-light my-auto" id="themeToggle" src="{{ asset('img/logo.png') }}" width="50" alt="">
                     </div>
                     <!-- <div class="col-4 mx-auto text-center my-auto">
                         <img src="{{asset('img/icon.png')}}" width="50" alt="">
@@ -33,7 +33,7 @@
                     </div> -->
                     <div class="col-4 ms-auto text-end my-auto">
                         <small class="text-muted fw-light">
-                            Crear Memorial
+                            Tokens
                         </small>
                     </div>
                 </div>
@@ -48,7 +48,6 @@
         <div class="row g-4">
             @include("sections.book.welcome")
             @include("sections.book.form")
-            @include("sections.book.summary")
             @include("sections.book.payment")
         </div>
     </form>

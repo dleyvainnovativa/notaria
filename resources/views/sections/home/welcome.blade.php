@@ -1,91 +1,68 @@
 <section class="text-bg-dark py-1 container" id="tour-bg">
-    <div class="container pb-5">
-        <div class="align-content-center my-5 pb-5" id="hero-content">
-            <div class="row g-4 text-center">
-                <div class="col-12 text-center" data-aos="fade-down"
-                    data-aos-delay="100">
-                    <h3 class="fw-light">
-                        <p class="badge text-primary bg-primary-subtle fw-light rounded-pill">
-                            <span class="fs-6">
-                                <i class="fas fa-qrcode me-2"></i>
-                                Plataforma de Memorial Digital
-                            </span>
+    <div class="container pb-lg-5 pb-4">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-md-5 col-lg-6 mx-auto"> <img src="https://doc2.co/wp-content/uploads/2025/12/Lawyer-amico-1.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> </div>
+            <div class="col-lg-6 col-md-7 text-dark">
+                <div class="row g-2">
+                    <div class="col-12">
+                        <h1 class="display display-2 fw-bold lh-1">
+                            Simplifica lo complejo
+                        </h1>
+
+                    </div>
+                    <div class="col-12">
+                        <p class="lead">
+                            Ágil, simple y confiable — transforma la gestión de documentos y cumple con el SAT sin fricción.
                         </p>
-                    </h3>
-                </div>
 
-                <div class="col-12 col-md-10 col-lg-6 mx-auto display" data-aos="zoom-in" data-aos-delay="200">
-                    <h2 class="title">
-                        Recordar es seguir amando
-                    </h2>
-                </div>
-
-                <div class="col-12 col-md-10 col-lg-7 mx-auto" data-aos-delay="200" data-aos="fade-up">
-                    <p class="fs-5 text-muted fw-light">
-                        Porque cada vida deja un eco que merece ser contemplado, y el amor no termina con la despedida.
-                    </p>
-                    <!-- <p class="fs-5 text-muted fw-light">
-                        Un código QR que enlaza a una página de memorial digital, controlada completamente por ti y tu familia. Honra a tus seres queridos con un homenaje duradero, accesible desde cualquier lugar.
-                    </p> -->
-                </div>
-
-                <div class="col-12 col-md-10 col-lg-8 mx-auto">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-auto">
-                            <a class="btn btn-primary btn-lg rounded-pill"
-                                data-aos-delay="200"
-                                data-aos="fade-up-left"
-                                href="#works">
-                                <span class="fs-6 px-3">¿Cómo funciona?</span>
-                            </a>
-                        </div>
-                        <div class="col-auto">
-                            <a class="btn btn-outline-primary btn-lg rounded-pill"
-                                data-aos-delay="200"
-                                data-aos="fade-up-right"
-                                href="{{route('payment')}}?redirect=payment">
-                                <span class="fs-6 px-3">Crear Memorial</span>
-                            </a>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button type="button" class="btn btn-primary px-4 me-md-2">
+                                Subir documento
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary px-4">
+                                Ver cómo funciona
+                            </button>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-12 mt-5">
-                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-4 gap-md-5">
-
-                        <div class="d-flex align-items-center gap-3" data-aos-delay="0"
-                            data-aos="fade-up">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary-subtle"
-                                style="width:40px;height:40px;">
-                                <i class="text-primary fas fa-cancel"></i>
+                    <div class="col-12 my-4">
+                        <!-- Rating -->
+                        <div class="row">
+                            <div class="col-12 col-md-auto text-center text-md-start">
+                                <div class="text-warning fs-5">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
                             </div>
-                            <span class="fw-medium text-dark">Sin suscripciones</span>
-                        </div>
-
-                        <div class="d-flex align-items-center gap-3" data-aos-delay="100"
-                            data-aos="fade-up">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary-subtle"
-                                style="width:40px;height:40px;">
-                                <i class="text-primary fas fa-shield"></i>
+                            <div class="col-12 col-md-auto text-center text-md-start">
+                                <strong class="fs-5">4.9</strong>
+                                <span class="text-muted ms-1">Calificación promedio</span>
                             </div>
-                            <span class="fw-medium text-dark">Sin anuncios</span>
-                        </div>
-
-                        <div class="d-flex align-items-center gap-3" data-aos-delay="200"
-                            data-aos="fade-up">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary-subtle"
-                                style="width:40px;height:40px;">
-                                <i class="text-primary fas fa-users"></i>
-                            </div>
-                            <span class="fw-medium text-dark">Tu familia controla el memorial</span>
                         </div>
                     </div>
-                </div>
+                    <div class="col-12">
 
-                <div class="col-12 col-md-10 col-lg-8 mx-auto pt-5" data-aos-delay="200" data-aos="fade-up">
-                    <a href="#action" class="text-dark">
-                        <i class="fas fa-chevron-down fa-lg"></i>
-                    </a>
+                        <!-- Stats -->
+                        <div class="row text-center text-md-start">
+
+                            <!-- Left stat -->
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h2 class="fw-bold display-6 mb-1">75.2%</h2>
+                                <p class="text-muted mb-0">Actividad diaria promedio</p>
+                            </div>
+
+
+                            <!-- Right stat -->
+                            <div class="col-md-6">
+                                <h2 class="fw-bold display-6 mb-1">4.2</h2>
+                                <p class="text-muted mb-0">Aperturas diarias promedio</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

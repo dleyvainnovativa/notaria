@@ -10,7 +10,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::updateOrCreate(
-            ['name' => 'Memoria Digital'],
+            ['name' => 'Pago'],
             [
                 'description' => 'Memorial digital con acceso privado para recordar y compartir la vida de tu ser querido. Pago único, sin suscripciones.',
                 'price' => 1000.00,

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DocumentsController;
 use App\Http\Controllers\Admin\MemorialsController;
 use App\Http\Controllers\Admin\PaymentsController;
 use App\Http\Controllers\Api\QRController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
@@ -79,6 +81,7 @@ Route::prefix('admin')->middleware('firebase.auth')->group(function () {
     // })->name('admin.payments');
 
     Route::get('/payments', [PaymentsController::class, 'index'])->name('admin.payments');
+    Route::get('/document', [DocumentsController::class, 'index'])->name('admin.document');
     Route::get('/invoice/{id}', [PaymentsController::class, 'invoice'])->name('admin.invoice');
     Route::get('/invoice/{id}/download', [PaymentsController::class, 'download'])->name('admin.invoice.download');
 

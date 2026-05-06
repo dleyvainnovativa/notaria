@@ -8,13 +8,13 @@ importScripts("https://www.gstatic.com/firebasejs/12.8.0/firebase-messaging-comp
 // IMPORTANT: These keys are publicly visible and are meant to be. 
 // There is no security risk in having them here.
 const firebaseConfig = {
-  apiKey: "AIzaSyDO-_hbG3wO9pidEFBP8o9dBLAMfLZ9EGw",
-  authDomain: "reservations-1767e.firebaseapp.com",
-  projectId: "reservations-1767e",
-  storageBucket: "reservations-1767e.firebasestorage.app",
-  messagingSenderId: "57806574584",
-  appId: "1:57806574584:web:fd922dab37f2d8bca0fc0d",
-  measurementId: "G-5TJV565CT0"
+  apiKey: "AIzaSyBzG0iMMrg1vvQAg6syRXO_VDOx2UnjAn8",
+  authDomain: "notaria-38a21.firebaseapp.com",
+  projectId: "notaria-38a21",
+  storageBucket: "notaria-38a21.firebasestorage.app",
+  messagingSenderId: "836562439296",
+  appId: "1:836562439296:web:83fc124611568e1e3b6a65",
+  measurementId: "G-WQ1S71G8DW"
 };
 
 

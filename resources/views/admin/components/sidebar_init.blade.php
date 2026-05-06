@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper" class="border border-dark card-dark sidebar safe-area">
     <div class="sidebar-heading text-primary">
-        <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+        <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
     </div>
 
     <div class="d-flex flex-column vh-100 pb-5">
@@ -12,11 +12,19 @@
 
             <a href="{{route('admin')}}" class="list-group-item list-group-item-action {{ request()->routeIs('admin') ? 'active' : '' }} {{ request()->routeIs('admin.memorials') ? 'active' : '' }}">
                 <small class="">
-                    <i class="fa-solid fa-id-card  start-icon"></i>
-                    Memorials
+                    <i class="fa-solid fa-house  start-icon"></i>
+                    Home
                 </small>
             </a>
             <!-- Finance -->
+            <div class="sidebar-section-label text-muted fw-bold">Módulos</div>
+
+            <a href="{{route('admin.document')}}" class="list-group-item list-group-item-action {{ request()->routeIs('admin.document') || request()->routeIs('admin.invoice')  ? 'active' : '' }}">
+                <small class="">
+                    <i class="fa-solid fa-file-contract  start-icon"></i>
+                    Derechos Reales
+                </small>
+            </a>
             <div class="sidebar-section-label text-muted fw-bold">Finanzas</div>
 
             <a href="{{route('admin.payments')}}" class="list-group-item list-group-item-action {{ request()->routeIs('admin.payments') || request()->routeIs('admin.invoice')  ? 'active' : '' }}">

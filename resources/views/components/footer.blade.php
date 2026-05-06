@@ -4,7 +4,8 @@
             <div class="row">
                 <!-- Brand -->
                 <div class="col-md-4 pb-4">
-                    <img src="{{asset('img/icon.png')}}" width="150" alt="Memorial Digital">
+                    <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="Memorial Digital">
+
 
                     <p class="my-2 col-md-10 pb-0 mb-1 text-muted fw-light">
                         Un espacio digital para honrar, recordar y preservar historias que viven para siempre.

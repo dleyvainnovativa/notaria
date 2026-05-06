@@ -2,35 +2,33 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between container">
             <a class="navbar-brand" href="{{route('home')}}">
-                <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+                <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
             </a>
-            <a class="position-relative ms-auto me-3">
+            <a class="position-relative ms-auto">
                 <div class="theme-switch ">
                     <input type="checkbox" id="themeToggle">
-                    <label for="themeToggle" class="switch border border-primary">
-                        <span class="icon moon"><i class="fas fa-moon"></i></span>
-                        <span class="icon sun"><i class="fas fa-sun"></i></span>
-                        <span class="slider"></span>
+                    <label for="themeToggle" class=" btn btn-primary">
+                        <i id="themeIcon" class="fas fa-moon"></i>
                     </label>
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fas fa-bars-staggered text-dark"></i></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fas fa-bars text-dark"></i></button>
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <a class="navbar-brand" href="{{route('home')}}">
-                        <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+                        <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
                     </a>
                     <button type="button" class="btn btn-dark ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-xmark fa-lg text-dark"></i></button>
                 </div>
                 <div class="offcanvas-body ">
                     <ul class="navbar-nav justify-content-end flex-grow-1">
                         <li class="nav-item py-2 me-2">
-                            <a class="btn btn-primary rounded-pill btn-sm" href="{{route('payment')}}">
+                            <a class="btn btn-primary" href="{{route('payment')}}">
                                 <span class="px-3">Compra ahora</span>
                             </a>
                         </li>
                         <li class="nav-item py-2">
-                            <a class="btn btn-outline-primary rounded-pill btn-sm px-4" href="{{route('login')}}">
+                            <a class="btn btn-outline-primary px-4" href="{{route('login')}}">
                                 <span class="">
                                     <i class="fas fa-arrow-right-to-bracket me-2"></i> Iniciar Sesión
                                 </span>

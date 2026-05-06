@@ -47,22 +47,23 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-xl-4 col-lg-6 col-md-7 col-12 mx-auto my-auto">
-                    <div class="text-center  mb-2">
-                        <img src="{{asset('img/icon.png')}}" width="140" alt="">
+                    <div class="text-center  mb-4">
+                        <img class="appLogo" src="{{asset('img/logo.png')}}" width="200" alt="">
+
                     </div>
-                    <div class="text-center mb-4 d-none d-lg-block">
+                    <!-- <div class="text-center mb-4 d-none d-lg-block">
                         <h2 class="fw-bold mb-2 text-dark">
                             Crear nueva cuenta
                         </h2>
                         <p class="text-muted">
                             Crea tu cuenta para acceder a tus memorias digitales
                         </p>
-                    </div>
-                    <div class="text-center mb-4 d-lg-none">
+                    </div> -->
+                    <!-- <div class="text-center mb-4 d-lg-none">
                         <small class="text-muted">
                             Crea tu cuenta para acceder a tus memorias digitales
                         </small>
-                    </div>
+                    </div> -->
                     <form action="#" method="POST" id="register-form" class="row g-3">
                         @csrf
                         <div class="col-12">
@@ -121,13 +122,11 @@
     </div>
     <div class="fixed-top">
         <div class="p-3 float-end">
-            <a class=" position-relative">
+            <a class="position-relative ms-auto">
                 <div class="theme-switch ">
                     <input type="checkbox" id="themeToggle">
-                    <label for="themeToggle" class="switch border border-primary">
-                        <span class="icon moon"><i class="fas fa-moon"></i></span>
-                        <span class="icon sun"><i class="fas fa-sun"></i></span>
-                        <span class="slider"></span>
+                    <label for="themeToggle" class=" btn btn-primary">
+                        <i id="themeIcon" class="fas fa-moon"></i>
                     </label>
                 </div>
             </a>

@@ -13,11 +13,11 @@
 
         <div data-aos-delay="200" data-aos="zoom-in"
             class="d-inline-flex align-items-center justify-content-center rounded-circle mb-4 bg-primary-subtle">
-            <i class="fa-solid fa-heart text-primary"></i>
+            <i class="fa-solid fa-coins text-primary"></i>
         </div>
 
-        <h1 class="font-serif display subtitle mb-2" data-aos-delay="200" data-aos="fade-up">
-            Crear memorial
+        <h1 class="font-serif subtitle mb-2" data-aos-delay="200" data-aos="fade-up">
+            Comprar Tokens
         </h1>
 
         <p class="text-muted fs-5" data-aos-delay="200" data-aos="fade-up">

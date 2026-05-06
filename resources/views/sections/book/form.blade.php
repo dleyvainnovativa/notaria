@@ -11,7 +11,12 @@
                     <label class="form-label fw-medium">
                         Nombre de tu ser querido <span class="fw-bold text-primary">*</span>
                     </label>
-                    <input type="text" name="deceased_name" class="form-control form-control-lg card-dark border border-dark" placeholder="Ingresa su nombre completo" required>
+                    <select name="deceased_name" class="form-select form-select-lg card-dark border border-dark" required>
+                        <option value="100 créditos" selected>100 Tokens</option>
+                        <option value="200 créditos">200 Tokens</option>
+                        <option value="500 créditos">500 Tokens</option>
+                    </select>
+                    <!-- <input type="text" name="deceased_name" class="form-control form-control-lg card-dark border border-dark" placeholder="Ingresa su nombre completo" required> -->
                     <div class="invalid-feedback">
                         El nombre de tu ser querido no puede estar vacío.
                     </div>
@@ -33,16 +38,16 @@
                         Tu correo electrónico <span class="fw-bold text-primary">*</span>
                     </label>
                     <input type="email" value="{{ session('user_email') }}" name="user_email" class="form-control form-control-lg card-dark border border-dark" placeholder="tu@email.com" required>
-                    <div class="form-text mb-2 text-muted">
+                    <!-- <div class="form-text mb-2 text-muted">
                         Te enviaremos el acceso para administrar el memorial
-                    </div>
+                    </div> -->
                     <div class="invalid-feedback">
                         Ingresa un correo válido.
                     </div>
                 </div>
 
                 <!-- Teléfono -->
-                <div class="col-12">
+                <div class="col-12 d-none">
                     <label class="form-label fw-medium">
                         Número telefónico <span class="text-primary fw-bold">(opcional)</span>
                     </label>

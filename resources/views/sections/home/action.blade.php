@@ -1,107 +1,101 @@
-<section class="text-bg-dark py-4" id="action">
+<section class="text-bg-dark py-4 container" id="action">
     <div class="container py-5 my-4">
-        <div class="text-center container">
+        <div class="text-center">
+
+            <!-- Title -->
             <div class="row g-4">
-                <div class="col-md-8 mx-auto col-auto" data-aos="fade-up">
-                    <h1 class="text-dark display subtitle">
-                        Honra hoy, recuerda siempre.
+                <div class="col-md-8 mx-auto" data-aos="fade-up">
+                    <h1 class="subtitle">
+                        Cumple con el SAT sin complicaciones
                     </h1>
                 </div>
 
-                <div class="col-md-8 mx-auto col-auto text-center" data-aos="fade-up">
+                <!-- Subtitle -->
+                <div class="col-md-8 mx-auto text-center" data-aos="fade-up">
                     <p class="text-muted fs-5">
-                        Crea un memorial digital duradero para alguien que amas.
-                    </p>
-                    <p class="text-muted fs-5">
-                        Su historia merece ser contada.
+                        Procesa tus documentos de forma rápida, segura y lista para uso oficial.
                     </p>
                 </div>
 
-                <div class="col-md-12 mx-auto" data-aos="fade-up">
-                    <div class="row">
-                        <div class="col-12 col-md-8 col-lg-5 col-xl-4 mx-auto">
-                            <div class="card card-dark border border-dark h-100 shadow-sm text-dark text-center">
+                <!-- PRICING -->
+                <div class="col-12" data-aos="fade-up">
+                    <div class="row g-4 justify-content-center">
+
+                        <!-- PLAN 200 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card card-dark text-dark border border-dark  shadow-sm text-center h-100">
                                 <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <div class="col-12">
-                                            <p class="badge text-primary bg-primary-subtle fw-light rounded-pill">
-                                                <span class="fs-6">
-                                                    <i class="fas fa-qrcode me-2"></i>
-                                                    Pago único
-                                                </span>
-                                            </p>
-                                        </div>
 
-                                        <div class="col-12">
-                                            <p>
-                                                <span class="fs-1 fw-bold">$1,000.00</span>
-                                                <span class="fs-6 text-muted"> MXN</span>
-                                            </p>
-                                        </div>
+                                    <span class="badge bg-primary-subtle text-primary mb-3">
+                                        Básico
+                                    </span>
 
-                                        <div class="col-12">
-                                            <ul class="list-unstyled mb-4">
-                                                <li class="d-flex align-items-start gap-3 mb-3">
-                                                    <span class="d-flex align-items-center justify-content-center rounded-circle bg-primary-subtle"
-                                                        style="width:20px;height:20px;">
-                                                        <i class="fa-solid fa-check text-primary" style="font-size:12px;"></i>
-                                                    </span>
-                                                    <span class="text-start">
-                                                        Página de memorial personalizada
-                                                    </span>
-                                                </li>
+                                    <h2 class="fw-bold">$200</h2>
+                                    <small class="text-muted">MXN</small>
 
-                                                <li class="d-flex align-items-start gap-3 mb-3">
-                                                    <span class="d-flex align-items-center justify-content-center rounded-circle bg-primary-subtle"
-                                                        style="width:20px;height:20px;">
-                                                        <i class="fa-solid fa-check text-primary" style="font-size:12px;"></i>
-                                                    </span>
-                                                    <span class="text-start">
-                                                        Código QR para colocación física
-                                                    </span>
-                                                </li>
+                                    <ul class="list-unstyled mt-4 mb-4 text-start">
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>10 tokens</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>20 documentos</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Procesamiento estándar</li>
+                                    </ul>
 
-                                                <li class="d-flex align-items-start gap-3 mb-3">
-                                                    <span class="d-flex align-items-center justify-content-center rounded-circle bg-primary-subtle"
-                                                        style="width:20px;height:20px;">
-                                                        <i class="fa-solid fa-check text-primary" style="font-size:12px;"></i>
-                                                    </span>
-                                                    <span class="text-start">
-                                                        Fotos, historias y recuerdos
-                                                    </span>
-                                                </li>
-
-                                                <li class="d-flex align-items-start gap-3 mb-3">
-                                                    <span class="d-flex align-items-center justify-content-center rounded-circle bg-primary-subtle"
-                                                        style="width:20px;height:20px;">
-                                                        <i class="fa-solid fa-check text-primary" style="font-size:12px;"></i>
-                                                    </span>
-                                                    <span class="text-start">
-                                                        Controles de privacidad (público o privado)
-                                                    </span>
-                                                </li>
-
-                                                <li class="d-flex align-items-start gap-3">
-                                                    <span class="d-flex align-items-center justify-content-center rounded-circle bg-primary-subtle"
-                                                        style="width:20px;height:20px;">
-                                                        <i class="fa-solid fa-check text-primary" style="font-size:12px;"></i>
-                                                    </span>
-                                                    <span class="text-start">
-                                                        Contenido gestionado por la familia
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- PLAN 500 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card card-dark text-dark border border-primary shadow text-center h-100">
+                                <div class="card-body p-4">
+
+                                    <span class="badge bg-primary text-white mb-3">
+                                        Más popular
+                                    </span>
+
+                                    <h2 class="fw-bold">$500</h2>
+                                    <small class="text-muted">MXN</small>
+
+                                    <ul class="list-unstyled mt-4 mb-4 text-start">
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>30 tokens</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>70 documentos</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Procesamiento prioritario</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Menor costo por documento</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PLAN 1000 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card card-dark text-dark border border-dark  shadow-sm text-center h-100">
+                                <div class="card-body p-4">
+
+                                    <span class="badge bg-primary-subtle text-primary mb-3">
+                                        Profesional
+                                    </span>
+
+                                    <h2 class="fw-bold">$1000</h2>
+                                    <small class="text-muted">MXN</small>
+
+                                    <ul class="list-unstyled mt-4 mb-4 text-start">
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>80 tokens</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>200 documentos</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Procesamiento prioritario</li>
+                                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Soporte preferente</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="col-md-12 mx-auto col-auto" data-aos="fade-up">
-                    <a class="btn btn-primary btn-lg rounded-pill" href="{{route('payment')}}">
-                        <span class="fs-6 px-3">Crear Memorial</span>
+                <!-- CTA -->
+                <div class="col-12 mt-4" data-aos="fade-up">
+                    <a class="btn btn-primary btn-lg px-4" href="{{route('payment')}}">
+                        Empieza ahora
                     </a>
                 </div>
 

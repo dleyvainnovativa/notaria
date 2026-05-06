@@ -50,7 +50,7 @@
             <!-- Panel izquierdo -->
             <div class="col-lg-6 text-bg-dark marketing-panel d-none d-lg-flex flex-column justify-content-between">
                 <div class="d-flex align-items-center gap-3">
-                    <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+                    <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
 
                 </div>
 
@@ -77,9 +77,8 @@
                 <div class="container h-100" style="place-items: anchor-center; align-content: center;">
                     <div class="row" style="justify-content: center;">
                         <div class="col-lg-8 col-xl-6 col-md-9 col-12">
-                            <div class="text-center d-lg-none mb-2">
-                                <img src="{{asset('img/icon.png')}}" width="140" alt="">
-
+                            <div class="text-center d-lg-none mb-4">
+                                <img class="appLogo" src="{{asset('img/logo.png')}}" width="200" alt="">
                             </div>
 
                             <div class="text-center mb-4 d-none d-lg-block">
@@ -91,11 +90,11 @@
                                 </p>
                             </div>
 
-                            <div class="text-center mb-4 d-lg-none">
+                            <!-- <div class="text-center mb-4 d-lg-none">
                                 <small class="text-muted">
                                     Accede a tu cuenta para continuar con tu compra.
                                 </small>
-                            </div>
+                            </div> -->
 
                             <form action="" method="POST" id="login-form" class="row g-3">
                                 @csrf
@@ -165,13 +164,11 @@
     </div>
     <div class="fixed-top">
         <div class="p-3 float-end">
-            <a class=" position-relative">
+            <a class="position-relative ms-auto">
                 <div class="theme-switch ">
                     <input type="checkbox" id="themeToggle">
-                    <label for="themeToggle" class="switch border border-primary">
-                        <span class="icon moon"><i class="fas fa-moon"></i></span>
-                        <span class="icon sun"><i class="fas fa-sun"></i></span>
-                        <span class="slider"></span>
+                    <label for="themeToggle" class=" btn btn-primary">
+                        <i id="themeIcon" class="fas fa-moon"></i>
                     </label>
                 </div>
             </a>

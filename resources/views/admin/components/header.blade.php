@@ -12,21 +12,19 @@
 
     <div class="ms-auto d-flex align-items-center gap-3">
         <a id="enable-notifications-btn" href="{{route('payment')}}" class="btn btn-outline-primary position-relative" title="Compra ahora">
-            <i class="fas fa-bag-shopping"></i>
+            <i class="fas fa-coins me-2"></i>100
         </a>
-        <a class=" position-relative">
+        <a class="position-relative ms-auto">
             <div class="theme-switch ">
                 <input type="checkbox" id="themeToggle">
-                <label for="themeToggle" class="switch border border-primary">
-                    <span class="icon moon"><i class="fas fa-moon"></i></span>
-                    <span class="icon sun"><i class="fas fa-sun"></i></span>
-                    <span class="slider"></span>
+                <label for="themeToggle" class=" btn btn-primary">
+                    <i id="themeIcon" class="fas fa-moon"></i>
                 </label>
             </div>
         </a>
         <div class="dropdown profile">
             <a class="d-flex align-items-center dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
-                <div class="btn btn-outline-primary rounded-circle">
+                <div class="btn btn-outline-primary">
                     <i class="fa-regular fa-user"></i>
                 </div>
             </a>
@@ -40,14 +38,6 @@
                             <div class="fw-bold">{{ session('user_name') }}</div>
                             <small class="text-muted">{{ session('user_email') }}</small>
                         </div>
-                    </div>
-
-                    <!-- Status -->
-                    <div class="mt-2">
-                        <span class="badge bg-success-subtle text-success">
-                            <i class="fas fa-circle me-1" style="font-size:8px;"></i>
-                            Activo
-                        </span>
                     </div>
                 </li>
                 <li>

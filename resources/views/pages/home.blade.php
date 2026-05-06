@@ -4,10 +4,8 @@
 
 
 @include("sections.home.welcome")
-@include("sections.home.features")
-@include("sections.home.works")
-@include("sections.home.quote")
-<!-- @include("sections.home.services") -->
+@include("sections.home.functions")
+@include("sections.home.extra")
 @include("sections.home.action")
 
 

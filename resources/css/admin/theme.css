@@ -3,12 +3,14 @@
      --sidebar-width: 260px;
     --sidebar-width-toggled: -260px;
     --header-height: 60px;
-     --bs-primary-rgb: 66, 130, 82;       /* Gold */
+          --bs-primary-rgb: 36, 108, 225;       /* Gold */
+      /* Gold */
     --bs-secondary-rgb: 155, 28, 28;      /* Dark red */
     /* --bs-dark-rgb: 15, 15, 15;   */
-    --bs-primary-bg-subtle: #c9d9cd;
+    --bs-primary-bg-subtle: #d0ddf2;
     --bs-dark-rgb: 13,13,18;
-    --primary-color: #428252;
+        --primary-color: #246ce1;
+
     /* --primary-color: rgb(66, 130, 82); */
     --dark-color: #0d0d12;
     /* --dark-color: #0d0d12; */
@@ -18,7 +20,7 @@
     --white-color: #ffffff;
     --success-color: #198754;
     --danger-color: #dc3545;
-    --primary-color-hover: #2f5b3a;
+    --primary-color-hover: #2737ad;
     --primary-color-subtle: rgba(66, 130, 82, 0.15);
     --light-color-hover: #e0e0e0;
     --secondary-color: #8b8b8b;
@@ -34,13 +36,15 @@
     
 }
 .theme-light { 
-     --bs-primary-rgb: 49, 98, 61;       /* Gold */
+          --bs-primary-rgb: 0, 89, 191;       /* Gold */
+      /* Gold */
     --bs-secondary-rgb: 155, 28, 28;      /* Dark red */
     /* --bs-dark-rgb: 15, 15, 15;   */
-    --bs-primary-bg-subtle: #31623d1e;
+    --bs-primary-bg-subtle: #d9e2f1;
     /* --bs-dark-rgb: 248, 244, 245; */
     --bs-dark-rgb: 248, 244, 245;
-    --primary-color: #31623d;
+        --primary-color: #0059bf;
+
     --dark-color: #faf8f5;
     --dark-color: rgb(250, 248, 245);
     --dark-color: rgb(249, 249, 249);
@@ -54,8 +58,8 @@
     --white-color: #ffffff;
     --success-color: #198754;
     --danger-color: #dc3545;
-    --primary-color-hover: #254a2e;
-    --primary-color-subtle: rgba(201, 162, 39, 0.15);
+    --primary-color-hover: #2042a7;
+    --primary-color-subtle: rgb(118, 152, 192);
     --light-color-hover: #e0e0e0;
     --secondary-color: #fefbfc;
     --option-color: #3b82f6;

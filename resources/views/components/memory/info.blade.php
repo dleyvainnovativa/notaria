@@ -1,7 +1,7 @@
 <div class="offcanvas offcanvas-bottom custom-offcanvas text-bg-dark border border-dark" tabindex="-1" id="infoBottomSheet" aria-labelledby="infoBottomSheetLabel">
     <div class="offcanvas-header pt-4 px-4 container">
         <!-- <h5 class="offcanvas-title" id="infoBottomSheetLabel">Offcanvas bottom</h5> -->
-        <img class="appLogo" src="{{asset('img/logo2.png')}}" width="160" alt="">
+        <img class="appLogo" src="{{asset('img/logo.png')}}" width="160" alt="">
 
         <button type="button" class="btn btn-dark ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-xmark fa-lg text-dark"></i></button>
 

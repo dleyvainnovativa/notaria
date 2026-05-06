@@ -47,7 +47,7 @@
     @include('components.fonts')
     @include('components.header')
 
-    <main class="py-5 mt-5">
+    <main class="py-md-5 py-4 mt-md-5 mt-0">
         <div class="">
             @yield('content')
         </div>

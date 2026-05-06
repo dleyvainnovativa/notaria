@@ -126,9 +126,15 @@ function updateLogos() {
 
     const isLight = root.classList.contains("theme-light");
     const src = isLight
-        ? `${app_url}img/logo2.png`
+        ? `${app_url}img/logo.png`
         :`${app_url}img/logo_dark.png`
-
+    if(isLight){
+        document.getElementById("themeIcon").classList.add("fa-sun");
+        document.getElementById("themeIcon").classList.remove("fa-moon");
+    }else{
+        document.getElementById("themeIcon").classList.add("fa-moon");
+        document.getElementById("themeIcon").classList.remove("fa-sun");
+    }
     logos.forEach(logo => {
         logo.src = src;
     });

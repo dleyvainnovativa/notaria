@@ -2,7 +2,7 @@
 
     <!-- Enviar -->
     <div class="mb-4" data-aos="fade-up">
-        <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100">
+        <button type="submit" class="btn btn-primary btn-lg w-100">
             <span class="fs-6">Pagar y crear memorial</span>
         </button>
 

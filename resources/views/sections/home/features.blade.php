@@ -1,5 +1,5 @@
-<section class="text-bg-dark py-4">
-    <div class="container py-5 my-4">
+<section class="text-bg-dark">
+    <div class="container py-md-5 py-4">
         <div class="text-center container">
             <div class="pb-5" data-aos="fade-up">
                 <h1 class="text-dark display subtitle">Todo lo que necesitas</h1>
