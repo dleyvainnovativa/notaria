@@ -3,13 +3,13 @@
         <div class="card-body p-4">
             <div class="row g-4 text-dark">
                 <div class="col-12">
-                    <h4 class="font-serif display fw-bold">Información del memorial</h4>
+                    <h4 class="font-serif display fw-bold">Información de los tokens</h4>
                 </div>
 
                 <!-- Nombre del ser querido -->
                 <div class="col-12">
                     <label class="form-label fw-medium">
-                        Nombre de tu ser querido <span class="fw-bold text-primary">*</span>
+                        Número de tokens <span class="fw-bold text-primary">*</span>
                     </label>
                     <select name="deceased_name" class="form-select form-select-lg card-dark border border-dark" required>
                         <option value="100 créditos" selected>100 Tokens</option>
@@ -18,7 +18,7 @@
                     </select>
                     <!-- <input type="text" name="deceased_name" class="form-control form-control-lg card-dark border border-dark" placeholder="Ingresa su nombre completo" required> -->
                     <div class="invalid-feedback">
-                        El nombre de tu ser querido no puede estar vacío.
+                        Selecciona una de las opciones de tokens
                     </div>
                 </div>
 

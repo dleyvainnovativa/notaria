@@ -21,7 +21,7 @@
         </h1>
 
         <p class="text-muted fs-5" data-aos-delay="200" data-aos="fade-up">
-            Estás a un paso de honrar a un ser querido
+            Estás a un paso de poder agilizar tus procesos notariales
         </p>
     </div>
 </section>

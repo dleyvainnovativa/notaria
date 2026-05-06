@@ -3,7 +3,7 @@
     <!-- Enviar -->
     <div class="mb-4" data-aos="fade-up">
         <button type="submit" class="btn btn-primary btn-lg w-100">
-            <span class="fs-6">Pagar y crear memorial</span>
+            <span class="fs-6">Pagar y obtener tokens</span>
         </button>
 
         <p class="text-center text-muted small mt-3 d-flex justify-content-center align-items-center gap-2">

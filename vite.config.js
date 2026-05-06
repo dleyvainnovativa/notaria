@@ -19,7 +19,7 @@ export default defineConfig({
                 'resources/js/admin/tributes.js',
                 'resources/js/admin/payments.js',
                 'resources/js/admin/invitations.js',
-                'resources/js/memory/memorial.js', 'resources/css/memorial.css',
+                'resources/js/memory/memorial.js', 'resources/css/memorial.css', 'resources/css/admin/steps.css',
             ],
             refresh: true,
         }),
