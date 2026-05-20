@@ -67,62 +67,9 @@ Route::prefix('admin')->middleware('firebase.auth')->group(function () {
     Route::get('/payments', [PaymentsController::class, 'index'])->name('admin.payments');
     Route::get('/document', [AdminDeclaranotController::class, 'index'])->name('admin.declaranot');
 
-
-
     Route::prefix('memorial/{memorial}')->middleware('memorial.access')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.memorial.dashboard');
-        Route::get('/life', function (Memorial $memorial) {
-            return view('admin.pages.life', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.life');
-        Route::get('/timeline', function (Memorial $memorial) {
-            return view('admin.pages.timeline', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user'),
-
-            ]);
-        })->name('admin.memorial.timeline');
-        Route::get('/info', function (Memorial $memorial) {
-            return view('admin.pages.info', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.info');
-        Route::get('/gallery', function (Memorial $memorial) {
-            return view('admin.pages.gallery', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.gallery');
-        Route::get('/playlist', function (Memorial $memorial) {
-            return view('admin.pages.playlist', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.playlist');
-        Route::get('/messages', function (Memorial $memorial) {
-            return view('admin.pages.messages', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.messages');
-        Route::get('/invitations', function (Memorial $memorial) {
-            return view('admin.pages.invitations', [
-                'memorial_slug' => $memorial->slug,
-                'memorial' => $memorial,
-                'user' => request()->route('current_user')
-            ]);
-        })->name('admin.memorial.invitations');
     });
-
 
     Route::get('/{any}', function () {
         return view('admin.pages.memorials');

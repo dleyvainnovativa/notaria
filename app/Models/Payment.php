@@ -65,13 +65,6 @@ class Payment extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the memorial this payment is for.
-     */
-    public function memorial(): BelongsTo
-    {
-        return $this->belongsTo(Memorial::class);
-    }
     public function getFolioAttribute()
     {
         return 'R-' . str_pad($this->id, 4, '0', STR_PAD_LEFT);

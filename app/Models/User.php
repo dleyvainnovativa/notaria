@@ -35,30 +35,8 @@ class User extends Authenticatable
         'firebase_uid',
     ];
 
-    // --- ADD THESE TWO METHODS ---
-
-    /**
-     * Get the memorials owned by the user.
-     * This defines the one-to-many relationship.
-     */
-    public function memorials(): HasMany
-    {
-        return $this->hasMany(Memorial::class);
-    }
-
-    /**
-     * Get the payments made by the user.
-     * This defines the one-to-many relationship.
-     */
     public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);
-    }
-
-    public function sharedMemorials(): BelongsToMany
-    {
-        return $this->belongsToMany(Memorial::class, 'memorial_invitations')
-            ->withPivot(['role', 'accepted_at'])
-            ->whereNotNull('accepted_at');
     }
 }
