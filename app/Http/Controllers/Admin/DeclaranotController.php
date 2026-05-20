@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class DocumentsController extends Controller
+class DeclaranotController extends Controller
 {
     public function index()
     {
         $user = User::find(session('user_id'));
         $data["user"] = $user;
-        return view('admin.pages.document', $data);
+        return view('admin.pages.declaranot', $data);
     }
 }

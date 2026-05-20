@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DeclaranotController as AdminDeclaranotController;
 use App\Http\Controllers\Admin\DocumentsController;
 use App\Http\Controllers\Admin\MemorialsController;
 use App\Http\Controllers\Admin\PaymentsController;
 use App\Http\Controllers\Api\QRController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\DeclaranotController;
+use App\Http\Controllers\Api\PagosFileController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PaymentController;
@@ -24,21 +27,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/extract', [DeclaranotController::class, 'extract'])->name('document.extract');
+Route::get('/declaranot', [DeclaranotController::class, 'generate'])->name('document.generate');
+Route::get('/pagos', [PagosFileController::class, 'extract'])->name('pagos.extract');
+
 // --- PUBLIC-FACING BOOKING SITE ---
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/privacy', function () {
     return view('privacy');
 })->name('privacy');
-Route::get('/instructions', function () {
-    return view('instructions');
-})->name('instructions');
-// Route::get('/payment', [PageController::class, 'book'])->name('payment');
-Route::get('/test', [PageController::class, 'test'])->name('test');
-Route::get('/q/{qr:uuid}', [QRController::class, 'index'])->name('qr.index');
-Route::get('/q/{qr:uuid}/download', [QRController::class, 'download'])->name('qr.download');
-Route::get('/memory/{memorial}', [PageController::class, 'memory'])->name('memory');
-Route::post('/memory/{memorial}', [PageController::class, 'memory_protected'])->name('memory.protected');
 
 // Stripe redirect routes (user is sent back here from an external site)
 Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
@@ -65,25 +63,9 @@ Route::post('/auth/firebase', [AuthController::class, 'firebaseLogin']);
 Route::prefix('admin')->middleware('firebase.auth')->group(function () {
 
     Route::get('/payment', [PageController::class, 'book'])->name('payment');
-
-    // Route::get('/', function () {
-    //     return view('admin.pages.memorials');
-    // })->name('admin');
-    Route::get('/', [MemorialsController::class, 'index'])->name('admin');
-
-    // Route::get('/memorials', function () {
-    //     return view('admin.pages.memorials');
-    // })->name('admin.memorials');
-    Route::get('/memorials', [MemorialsController::class, 'index'])->name('admin.memorials');
-
-    // Route::get('/payments', function () {
-    //     return view('admin.pages.payments');
-    // })->name('admin.payments');
-
+    Route::get('/', [DashboardController::class, 'index'])->name('admin');
     Route::get('/payments', [PaymentsController::class, 'index'])->name('admin.payments');
-    Route::get('/document', [DocumentsController::class, 'index'])->name('admin.document');
-    Route::get('/invoice/{id}', [PaymentsController::class, 'invoice'])->name('admin.invoice');
-    Route::get('/invoice/{id}/download', [PaymentsController::class, 'download'])->name('admin.invoice.download');
+    Route::get('/document', [AdminDeclaranotController::class, 'index'])->name('admin.declaranot');
 
 
 

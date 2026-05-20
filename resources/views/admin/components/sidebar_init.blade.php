@@ -19,7 +19,7 @@
             <!-- Finance -->
             <div class="sidebar-section-label text-muted fw-bold">Módulos</div>
 
-            <a href="{{route('admin.document')}}" class="list-group-item list-group-item-action {{ request()->routeIs('admin.document') || request()->routeIs('admin.invoice')  ? 'active' : '' }}">
+            <a href="{{route('admin.declaranot')}}" class="list-group-item list-group-item-action {{ request()->routeIs('admin.declaranot') || request()->routeIs('admin.invoice')  ? 'active' : '' }}">
                 <small class="">
                     <i class="fa-solid fa-file-contract  start-icon"></i>
                     Derechos Reales

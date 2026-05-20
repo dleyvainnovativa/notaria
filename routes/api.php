@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MemorialParagraphController as AdminMemorialParagraphController;
+use App\Http\Controllers\Api\DeclaranotController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\MemorialParagraphController;
 use App\Http\Controllers\Api\MemorialController;
@@ -19,6 +20,9 @@ Route::post("/{memorial}/tributes", [TributeController::class, 'store'])->name('
 
 
 Route::middleware('firebase.jwt')->group(function () {
+
+    Route::post('/extract', [DeclaranotController::class, 'extract'])->name('document.extract');
+
 
     Route::get("/memorials", [MemorialController::class, 'index'])->name('api.memorial.memorials');
     Route::get("/{memorial}/info", [MemorialController::class, 'info'])->name('api.memorial.info');

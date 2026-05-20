@@ -79,11 +79,6 @@ document.addEventListener("visibilitychange", async () => {
     }
 });
 
-
-
-
-
-
 let memorial_slug = document.getElementById("memorial_slug").value || '';
 
 window.memorial_slug=memorial_slug;
