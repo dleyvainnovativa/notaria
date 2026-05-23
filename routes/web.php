@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DeclaranotController as AdminDeclaranotController
 use App\Http\Controllers\Admin\DocumentsController;
 use App\Http\Controllers\Admin\MemorialsController;
 use App\Http\Controllers\Admin\PaymentsController;
+use App\Http\Controllers\Api\CatalogosController;
 use App\Http\Controllers\Api\QRController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\DeclaranotController;
@@ -30,6 +31,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/extract', [DeclaranotController::class, 'extract'])->name('document.extract');
 Route::get('/declaranot', [DeclaranotController::class, 'generate'])->name('document.generate');
 Route::get('/pagos', [PagosFileController::class, 'extract'])->name('pagos.extract');
+Route::get('/catalogos', [CatalogosController::class, 'catalogos'])->name('pagos.catalogos');
+Route::get('/catalogos/excel', [CatalogosController::class, 'exportCatalogsToExcel'])->name('pagos.catalogos.excel');
+Route::get('/catalogos/store', [CatalogosController::class, 'import'])->name('pagos.catalogos.import');
 
 // --- PUBLIC-FACING BOOKING SITE ---
 

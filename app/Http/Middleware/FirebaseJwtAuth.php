@@ -28,21 +28,16 @@ class FirebaseJWTAuth
         if (!$token) {
             return response()->json(['message' => 'Authentication token not provided.'], 401);
         }
-
         try {
             $verifier = IdTokenVerifier::createWithProjectId(
                 env("VITE_FIREBASE_PROJECT_ID")
             );
             $verifiedToken = $verifier->verifyIdTokenWithLeeway(
                 $token,
-                10 // seconds
+                10
             );
             $firebaseUid = $verifiedToken->payload()['sub'];
-            // $verifiedIdToken = $this->auth->verifyIdToken($token, $checkIfRevoked = true);
-            // $firebaseUid = $verifiedIdToken->claims()->get('sub');
-
             $user = User::where('firebase_uid', $firebaseUid)->first();
-
             if (!$user) {
                 return response()->json(['message' => 'User not found'], 401);
             }

@@ -1,7 +1,7 @@
 export async function sendTokenToBackend(user) {
     const token = await user.getIdToken(true);
     console.log("token to send");
-    localStorage.setItem("selahi_auth_token", token);
+    localStorage.setItem("notaria_auth_token", token);
     let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     await fetch(`${app_url}auth/firebase`, {
         method: "POST",

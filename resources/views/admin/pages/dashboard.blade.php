@@ -163,5 +163,4 @@
     </div>
 </div>
 
-@vite(["resources/js/admin/memorials.js"])
 @endsection

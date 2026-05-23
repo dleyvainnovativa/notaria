@@ -1,4 +1,4 @@
-<div class="tab-pane fade show" id="pane-rules" role="tabpanel" aria-labelledby="tab-rules">
+<div class="tab-pane fade show" id="pane-process" role="tabpanel" aria-labelledby="tab-process">
     <div class="card card-dark shadow-sm border border-dark text-dark mb-md-5">
         <div class="card-body p-4">
             <div class="py-5">

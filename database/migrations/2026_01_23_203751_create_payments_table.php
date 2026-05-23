@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('memorial_id')->nullable()->constrained()->onDelete('set null');
             $table->string('stripe_payment_intent_id')->nullable()->unique();
             $table->string('stripe_session_id')->nullable()->unique();
             $table->decimal('amount', 8, 2);

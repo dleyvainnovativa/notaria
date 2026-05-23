@@ -63,3 +63,71 @@ if (!function_exists('getJsonData')) {
         return $data;
     }
 }
+
+if (!function_exists('injectCatalogs')) {
+    function injectCatalogs(array $schema, string $type): array
+    {
+        $catalogPath = storage_path("app/public/catalogs/$type/");
+        $walk = function (&$item) use (&$walk, $catalogPath) {
+            if (is_array($item) && isset($item['source'])) {
+                $catalogName = $item['source'];
+                $file = $catalogPath . $catalogName . '.json';
+                if (file_exists($file)) {
+                    $catalogContent = json_decode(
+                        file_get_contents($file),
+                        true
+                    );
+                    $item['allowed_values'] = $catalogContent;
+                } else {
+                    $item['allowed_values'] = [];
+                }
+            }
+            if (is_array($item)) {
+                foreach ($item as &$child) {
+                    $walk($child);
+                }
+            }
+        };
+        $walk($schema);
+        return $schema;
+    }
+}
+
+if (!function_exists('fetchCatalog')) {
+    function fetchCatalog(string $type, string $catalog): array
+    {
+        $catalogPath = storage_path("app/public/catalogs/$type/");
+        $file = $catalogPath . $catalog . '.json';
+        if (file_exists($file)) {
+            $catalogContent = json_decode(
+                file_get_contents($file),
+                true
+            );
+        } else {
+            $catalogContent = null;
+        }
+        return $catalogContent;
+    }
+}
+
+if (!function_exists('read_json_file')) {
+
+    function read_json_file($relativePath)
+    {
+        $path = storage_path($relativePath);
+
+        if (!file_exists($path)) {
+            throw new \Exception("JSON file not found: {$path}");
+        }
+
+        $content = file_get_contents($path);
+
+        $json = json_decode($content, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new \Exception("Invalid JSON in file: {$path}");
+        }
+
+        return $json;
+    }
+}

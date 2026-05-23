@@ -1,5 +1,5 @@
 function ajaxRequest(params) {
-    const token = localStorage.getItem('selahi_auth_token');
+    const token = localStorage.getItem('notaria_auth_token');
     if (!token) {
         // window.location.href = `${app_url}login`;
         return;

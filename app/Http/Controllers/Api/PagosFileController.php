@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Log;
 use PhpOffice\PhpWord\IOFactory;
 use Smalot\PdfParser\Parser;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use OpenAI;
 
 class PagosFileController extends Controller

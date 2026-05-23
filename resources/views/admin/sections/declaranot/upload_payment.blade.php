@@ -1,12 +1,12 @@
-<div class="tab-pane fade show active" id="pane-info" role="tabpanel" aria-labelledby="tab-info">
+<div class="tab-pane fade" id="pane-payment" role="tabpanel" aria-labelledby="tab-payment">
     <div class="card card-dark shadow-sm border border-dark text-dark mb-md-5">
         <div class="card-body p-4">
 
 
             <div class="pb-4">
                 <div class="d-flex align-items-center gap-2 mb-1">
-                    <i class="fa-solid fa-file-contract text-primary"></i>
-                    <h5 class="mb-0 fw-semibold">Subir Escritura</h5>
+                    <i class="fa-solid fa-file-upload text-primary"></i>
+                    <h5 class="mb-0 fw-semibold">Subir documento</h5>
                 </div>
 
                 <p class="text-muted small mb-0">
@@ -14,12 +14,12 @@
                 </p>
             </div>
 
-            <div class="mb-2 upload-wrapper" data-type="escritura">
+            <div class="mb-2 upload-wrapper" data-type="calculo">
 
                 <!-- FILE INPUT -->
                 <input
                     type="file"
-                    name="escritura"
+                    name="calculo"
                     class="documentInput d-none"
                     accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
 
@@ -47,11 +47,23 @@
                 Formatos soportados: PDF, Word (.doc, .docx)
             </small>
 
-            <div class="mt-4">
-                <a data-next="tab-payment" class="btn btn-primary w-100">
-                    Siguiente
-                </a>
+            <div class="col-12 mt-5">
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <a data-prev="tab-info" class="btn btn-outline-primary w-100"><i class="fas fa-chevron-left me-2"></i>Regresar</a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-upload me-2"></i>
+                            Siguiente
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            <!-- <div class="mt-4">
+            </div> -->
+
 
         </div>
     </div>

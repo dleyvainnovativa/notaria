@@ -8,7 +8,7 @@ onIdTokenChanged(auth, async (user) => {
     if (!user || syncing) return;
 
     const token = await user.getIdToken();
-    const lastToken = localStorage.getItem("selahi_auth_token");
+    const lastToken = localStorage.getItem("notaria_auth_token");
     if (token === lastToken) return;
     syncing = true;
     try {
