@@ -115,8 +115,8 @@ class DeclaranotController extends Controller
         }
         $text = preg_replace('/\s+/', ' ', $text);
         $text = trim($text);
-        // $json = self::getAIJSON($text, $type);
-        $json = read_json_file("app/public/results/$type.json");
+        $json = self::getAIJSON($text, $type);
+        // $json = read_json_file("app/public/results/$type.json");
         return $json;
     }
 
