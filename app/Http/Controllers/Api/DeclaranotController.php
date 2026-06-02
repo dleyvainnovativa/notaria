@@ -84,7 +84,7 @@ class DeclaranotController extends Controller
         $path = $file->getRealPath();
         $extension = strtolower($file->getClientOriginalExtension());
         $text = '';
-        if ($extension === 'docx') {
+        if ($extension === 'docx' || $extension === 'doc') {
             $phpWord = IOFactory::load($path);
             foreach ($phpWord->getSections() as $section) {
                 $elements = $section->getElements();
