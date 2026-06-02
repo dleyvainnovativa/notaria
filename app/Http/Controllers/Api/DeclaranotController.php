@@ -48,10 +48,14 @@ class DeclaranotController extends Controller
         try {
             $request->validate([
                 'escritura' => 'required|file|mimes:pdf,doc,docx|max:5120',
-                'calculo' => 'required|file|mimes:pdf,doc,docx|max:5120',
+                'calculo' => 'nullable|file|mimes:pdf,doc,docx|max:5120',
             ]);
             $escritura = self::buildFile($request->file('escritura'), "declaranot");
-            $calculo = self::buildFile($request->file('calculo'), "pagos");
+            if ($request->file("calculo")) {
+                $calculo = self::buildFile($request->file('calculo'), "pagos");
+            } else {
+                $calculo = [];
+            }
 
             $schema_raw = self::getSchema();
             $schema = self::buildFormSchema();
@@ -137,51 +141,40 @@ class DeclaranotController extends Controller
 
     private function buildFormSchema(): array
     {
-        // Pre-fetch all catalogs used across the schema (one query each)
         $catalogInmuebles       = fetchCatalog("declaranot", 'catalogo_inmuebles');
         $catalogTiposPago       = fetchCatalog("declaranot", 'catalogo_tipos_pago');
         $catalogBancos          = fetchCatalog("declaranot", 'catalogo_bancos');
         $catalogTiposDomicilio  = fetchCatalog("declaranot", 'catalogo_tipos_domicilio');
         $catalogDatosInformativos = fetchCatalog("declaranot", 'catalogo_datos_informativos');
-
         return [
-
-            // ── Scalar fields ─────────────────────────────────────────────────────
-
             'numero_escritura' => [
                 'label'    => 'Número de Escritura',
                 'type'     => 'text',
                 'required' => true,
             ],
-
             'fecha_firma_escritura' => [
                 'label'    => 'Fecha de Firma',
                 'type'     => 'date',
                 'required' => true,
             ],
-
             'tipo_inmueble' => [
                 'label'    => 'Tipo de Inmueble',
                 'type'     => 'select',
                 'required' => true,
                 'options'  => $catalogInmuebles,
             ],
-
             'especifica_inmueble' => [
                 'label'       => 'Especificar Inmueble',
                 'type'        => 'text',
                 // Shown/required only when tipo_inmueble = "otros"
-                'required_if' => ['tipo_inmueble' => 'otros'],
+                'required_if' => ['tipo_inmueble' => '9'],
             ],
-
             'avaluo_inmueble' => [
                 'label'    => 'Avalúo del Inmueble',
                 'type'     => 'number',
+                'format'  => 'round',
                 'required' => true,
             ],
-
-            // ── Array: Pagos del inmueble ─────────────────────────────────────────
-
             'pagos_inmueble' => [
                 'label'      => 'Pagos del Inmueble',
                 'type'       => 'array',
@@ -189,9 +182,10 @@ class DeclaranotController extends Controller
                     'monto' => [
                         'label'    => 'Monto',
                         'type'     => 'number',
+                        'format'  => 'round',
                         'required' => true,
                     ],
-                    'tipo' => [
+                    'tipo_pago_inmueble' => [
                         'label'    => 'Tipo de Pago',
                         'type'     => 'select',
                         'required' => true,
@@ -202,12 +196,12 @@ class DeclaranotController extends Controller
                         'type'        => 'select',
                         'options'     => $catalogBancos,
                         // Required when tipo is cheque or transferencia
-                        'required_if' => ['tipo' => ['cheque', 'transferencia']],
+                        'required_if' => ['tipo_pago_inmueble' => ['2', '3']],
                     ],
                     'numero_cuenta' => [
                         'label'       => 'Número de Cuenta',
                         'type'        => 'text',
-                        'required_if' => ['tipo' => ['cheque', 'transferencia']],
+                        'required_if' => ['tipo_pago_inmueble' => ['2', '3']],
                     ],
                     'otro' => [
                         'label'       => 'Otro (especificar)',
@@ -217,14 +211,11 @@ class DeclaranotController extends Controller
                     ],
                 ],
             ],
-
-            // ── Array: Enajenantes ────────────────────────────────────────────────
-
             'enajenantes' => [
                 'label'      => 'Enajenantes',
                 'type'       => 'array',
                 'itemSchema' => [
-                    'tipo' => [
+                    'tipo_enajenante' => [
                         'label'    => 'Tipo',
                         'type'     => 'select',
                         'required' => true,
@@ -252,15 +243,11 @@ class DeclaranotController extends Controller
                     'curp' => [
                         'label'       => 'CURP',
                         'type'        => 'text',
-                        'required_if' => ['tipo' => 'nacional'],
+                        'required_if' => ['tipo_enajenante' => '1'],
                         'validation'  => ['format' => 'curp'],
                     ],
                 ],
             ],
-
-            // ── Object: Datos informativos ────────────────────────────────────────
-            // type=object → rendered as a single flat group (no Add / Remove)
-
             'datos_informativos' => [
                 'label'      => 'Datos Informativos',
                 'type'       => 'object',
@@ -274,23 +261,22 @@ class DeclaranotController extends Controller
                     'monto' => [
                         'label'       => 'Monto',
                         'type'        => 'number',
+                        'format'  => 'round',
                         'required_if' => ['ingresos_exentos' => '1'],
                     ],
                     'impuesto' => [
                         'label'       => 'Impuesto',
                         'type'        => 'number',
+                        'format'  => 'round',
                         'required_if' => ['ingresos_exentos' => '1'],
                     ],
                 ],
             ],
-
-            // ── Array: Adquirientes ───────────────────────────────────────────────
-
             'adquirientes' => [
                 'label'      => 'Adquirientes',
                 'type'       => 'array',
                 'itemSchema' => [
-                    'tipo' => [
+                    'tipo_adquiriente' => [
                         'label'   => 'Tipo',
                         'type'    => 'select',
                         'options' => $catalogTiposDomicilio,
@@ -316,15 +302,11 @@ class DeclaranotController extends Controller
                     'curp' => [
                         'label'       => 'CURP',
                         'type'        => 'text',
-                        'required_if' => ['tipo' => 'nacional'],
+                        'required_if' => ['tipo_adquiriente' => '1'],
                         'validation'  => ['format' => 'curp'],
                     ],
                 ],
             ],
-
-            // ── Array: Pago ───────────────────────────────────────────────────────
-            // total_isr_pagado is type=computed; JS evaluates formula with sibling values.
-
             'pago' => [
                 'label'      => 'Pago',
                 'type'       => 'array',
@@ -332,42 +314,52 @@ class DeclaranotController extends Controller
                     'ingresos_enajenacion' => [
                         'label' => 'Ingresos por Enajenación',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'ingresos_exentos' => [
                         'label' => 'Ingresos Exentos',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'ingreso_sismo_2017' => [
                         'label' => 'Ingreso Sismo 2017',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'deducciones_autorizadas' => [
                         'label' => 'Deducciones Autorizadas',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'ganancia_perdida' => [
                         'label' => 'Ganancia / Pérdida',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'years_adquisicion_venta' => [
                         'label' => 'Años entre Adquisición y Venta',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'ganancia_acumulable' => [
                         'label' => 'Ganancia Acumulable',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'ganancia_no_acumulable' => [
                         'label' => 'Ganancia No Acumulable',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'isr_federacion' => [
                         'label' => 'ISR Federación',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'numero_operacion_federacion' => [
                         'label' => 'Número de Operación Federación',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'fecha_pago_federacion' => [
                         'label' => 'Fecha de Pago Federación',
@@ -376,10 +368,12 @@ class DeclaranotController extends Controller
                     'isr_entidad' => [
                         'label' => 'ISR Entidad',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'numero_operacion_entidad' => [
                         'label' => 'Número de Operación Entidad',
                         'type'  => 'number',
+                        'format'  => 'round',
                     ],
                     'fecha_pago_entidad' => [
                         'label' => 'Fecha de Pago Entidad',
@@ -392,32 +386,22 @@ class DeclaranotController extends Controller
                     ],
                 ],
             ],
-
-            // ── Scalar: Existe copropiedad ────────────────────────────────────────
-            // Scalar select that can also be auto-derived from copropiedad.integrantes length.
-
-            'existe_copropiedad' => [
-                'label'                  => '¿Existe Copropiedad?',
-                'type'                   => 'select',
-                'options'                => $catalogDatosInformativos,
-                'default_if_missing_label' => 'No',
-                // JS hint: if copropiedad.integrantes.length > 0 → auto-select the "Sí" option
-                'derive_from_array_length' => [
-                    'path'        => 'copropiedad.integrantes',
-                    'if_gt'       => 0,
-                    'true_label'  => 'Sí',
-                    'false_label' => 'No',
-                ],
-            ],
-
-            // ── Object: Copropiedad ───────────────────────────────────────────────
-            // type=object → single flat group.
-            // integrantes is a nested array enabled when existe_copropiedad = "1".
-
             'copropiedad' => [
                 'label'      => 'Copropiedad',
                 'type'       => 'object',
                 'itemSchema' => [
+                    'existe_copropiedad' => [
+                        'label'                  => '¿Existe Copropiedad?',
+                        'type'                   => 'select',
+                        'options'                => $catalogDatosInformativos,
+                        'default_if_missing_label' => 'No',
+                        'derive_from_array_length' => [
+                            'path'        => 'copropiedad.integrantes',
+                            'if_gt'       => 0,
+                            'true_label'  => 'Sí',
+                            'false_label' => 'No',
+                        ],
+                    ],
                     'integrantes' => [
                         'label'      => 'Integrantes',
                         'type'       => 'array',
@@ -431,43 +415,47 @@ class DeclaranotController extends Controller
                             'porcentaje' => [
                                 'label' => 'Porcentaje (%)',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'ingresos_enajenacion' => [
                                 'label' => 'Ingresos por Enajenación',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'deducciones_autorizadas' => [
                                 'label' => 'Deducciones Autorizadas',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'ganancia_perdida' => [
                                 'label' => 'Ganancia / Pérdida',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'ganancia_acumulable' => [
                                 'label' => 'Ganancia Acumulable',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'ganancia_no_acumulable' => [
                                 'label' => 'Ganancia No Acumulable',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'isr_federacion' => [
                                 'label' => 'ISR Federación',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                             'isr_entidad' => [
                                 'label' => 'ISR Entidad',
                                 'type'  => 'number',
+                                'format'  => 'round',
                             ],
                         ],
                     ],
                 ],
             ],
-
-            // ── Object: Representante común ───────────────────────────────────────
-            // type=object → single flat group (no Add / Remove).
-
             'representante_comun' => [
                 'label'      => 'Representante Común',
                 'type'       => 'object',
@@ -622,7 +610,7 @@ class DeclaranotController extends Controller
             $lines[] =
                 '900002-DatosPago-grid:' .
                 round($v($pago['monto']))               . '|' .
-                $v($pago['tipo'])                        . '|' .   // "1"=Efectivo,"2"=Cheque,"3"=Transferencia,"9"=Otro
+                $v($pago['tipo_pago_inmueble'])                        . '|' .   // "1"=Efectivo,"2"=Cheque,"3"=Transferencia,"9"=Otro
                 $v($pago['institucion_financiera'])      . '|' .
                 ($index + 1)                             . '|' .
                 $v($pago['numero_cuenta']);
@@ -633,7 +621,7 @@ class DeclaranotController extends Controller
         foreach ($json['enajenantes'] as $enajenante) {
             $lines[] =
                 '900003-DatosEnajenante-grid:' .
-                $v($enajenante['tipo'])              . '|' .
+                $v($enajenante['tipo_enajenante'])              . '|' .
                 $v($enajenante['rfc'])               . '|' .
                 $v($enajenante['nombre'])            . '|' .
                 $v($enajenante['apellido_paterno'])  . '|' .
@@ -660,7 +648,7 @@ class DeclaranotController extends Controller
         foreach ($json['adquirientes'] as $adquiriente) {
             $lines[] =
                 '900005-DatosAdquiriente-grid:' .
-                $v($adquiriente['tipo'])             . '|' .
+                $v($adquiriente['tipo_adquiriente'])             . '|' .
                 $v($adquiriente['rfc'])              . '|' .
                 $v($adquiriente['nombre'])           . '|' .
                 $v($adquiriente['apellido_paterno']) . '|' .
@@ -695,8 +683,8 @@ class DeclaranotController extends Controller
         // copropiedad is now an object with integrantes[] nested inside
         // representante_comun is now its own top-level object
 
-        $existeCopropiedad  = $json['existe_copropiedad'] ?? '2';
         $copropiedadObj     = $json['copropiedad']        ?? null;
+        $existeCopropiedad  = $copropiedadObj['existe_copropiedad'] ?? '2';
         $integrantes        = $copropiedadObj['integrantes'] ?? [];
         $representanteObj   = $json['representante_comun'] ?? null;
 
