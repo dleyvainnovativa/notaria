@@ -84,44 +84,72 @@ class DeclaranotController extends Controller
         $path = $file->getRealPath();
         $extension = strtolower($file->getClientOriginalExtension());
         $text = '';
-        if ($extension === 'docx' || $extension === 'doc') {
-            $phpWord = IOFactory::load($path);
-            foreach ($phpWord->getSections() as $section) {
-                $elements = $section->getElements();
-                foreach ($elements as $element) {
-                    if (method_exists($element, 'getText')) {
-                        $text .= $element->getText() . "\n";
-                    }
-                    if ($element instanceof \PhpOffice\PhpWord\Element\Table) {
-                        foreach ($element->getRows() as $row) {
-                            foreach ($row->getCells() as $cell) {
-                                foreach ($cell->getElements() as $cellElement) {
-                                    if (method_exists($cellElement, 'getText')) {
-                                        $text .= $cellElement->getText() . ' ';
+        try {
+            if ($extension === 'docx') {
+                $phpWord = IOFactory::load($path);
+                foreach ($phpWord->getSections() as $section) {
+                    $elements = $section->getElements();
+                    foreach ($elements as $element) {
+                        if (method_exists($element, 'getText')) {
+                            $text .= $element->getText() . "\n";
+                        }
+                        if ($element instanceof \PhpOffice\PhpWord\Element\Table) {
+                            foreach ($element->getRows() as $row) {
+                                foreach ($row->getCells() as $cell) {
+                                    foreach ($cell->getElements() as $cellElement) {
+                                        if (method_exists($cellElement, 'getText')) {
+                                            $text .= $cellElement->getText() . ' ';
+                                        }
                                     }
                                 }
+                                $text .= "\n";
                             }
-                            $text .= "\n";
                         }
                     }
                 }
+            } elseif ($extension === 'pdf') {
+                $parser = new Parser();
+                $pdf = $parser->parseFile($path);
+                $text = $pdf->getText();
+            } elseif ($extension === 'doc') {
+
+                $content = file_get_contents($path);
+
+                // Convert encoding as best as possible
+                $content = mb_convert_encoding(
+                    $content,
+                    'UTF-8',
+                    ['Windows-1252', 'ISO-8859-1', 'CP1252']
+                );
+
+                // Remove most binary/control characters
+                $text = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F]/u', ' ', $content);
+
+                // Keep letters (including accents), numbers, punctuation and spaces
+                $text = preg_replace('/[^\p{L}\p{N}\p{P}\p{Z}\r\n\t]/u', ' ', $text);
+
+                // Collapse whitespace
+                $text = preg_replace('/\s+/u', ' ', $text);
+
+                $text = trim($text);
+
+                // dd($text);
+            } else {
+                throw new Exception("Unsupported file type");
+                // return response()->json([
+                //     'success' => false,
+                //     'message' => 'Unsupported file type'
+                // ], 400);
             }
-        } elseif ($extension === 'pdf') {
-            $parser = new Parser();
-            $pdf = $parser->parseFile($path);
-            $text = $pdf->getText();
-        } else {
-            throw new Exception("Unsupported file type");
-            // return response()->json([
-            //     'success' => false,
-            //     'message' => 'Unsupported file type'
-            // ], 400);
+            $text = preg_replace('/\s+/', ' ', $text);
+            $text = trim($text);
+            $json = self::getAIJSON($text, $type);
+            // $json = read_json_file("app/public/results/$type.json");
+            return $json;
+        } catch (\Throwable $e) {
+            dd($e->getMessage());
+            return "";
         }
-        $text = preg_replace('/\s+/', ' ', $text);
-        $text = trim($text);
-        $json = self::getAIJSON($text, $type);
-        // $json = read_json_file("app/public/results/$type.json");
-        return $json;
     }
 
     private static function getSchema()
