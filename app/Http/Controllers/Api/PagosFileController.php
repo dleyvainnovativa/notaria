@@ -26,7 +26,7 @@ class PagosFileController extends Controller
             }
             $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
             $text = '';
-            if ($extension === 'docx') {
+            if ($extension === 'docx' || $extension === 'doc') {
                 $phpWord = IOFactory::load($path);
                 foreach ($phpWord->getSections() as $section) {
                     $elements = $section->getElements();

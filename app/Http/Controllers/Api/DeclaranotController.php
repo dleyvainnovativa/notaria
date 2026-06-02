@@ -191,6 +191,12 @@ class DeclaranotController extends Controller
                         'required' => true,
                         'options'  => $catalogTiposPago,
                     ],
+                    'otro_pago' => [
+                        'label'       => 'Otro tipo de pago (especificar)',
+                        'type'        => 'text',
+                        // Required when institucion_financiera = "999" (valor "Otro" en catálogo)
+                        'required_if' => ['tipo_pago_inmueble' => ['9']],
+                    ],
                     'institucion_financiera' => [
                         'label'       => 'Institución Financiera',
                         'type'        => 'select',
@@ -612,8 +618,9 @@ class DeclaranotController extends Controller
                 round($v($pago['monto']))               . '|' .
                 $v($pago['tipo_pago_inmueble'])                        . '|' .   // "1"=Efectivo,"2"=Cheque,"3"=Transferencia,"9"=Otro
                 $v($pago['institucion_financiera'])      . '|' .
-                ($index + 1)                             . '|' .
-                $v($pago['numero_cuenta']);
+                // ($index + 1)                             . '|' .
+                $v($pago['numero_cuenta'])  . '|' .
+                $v($pago['otro_pago']);
         }
 
         // ── Lines: 900003 — Enajenantes (grid) ────────────────────────────────────
